@@ -38,6 +38,15 @@ Game = (function(){
 	        }
 	      }
 	    }
+
+	    if(typeof callback != 'undefined'){
+			callback();
+		}
+	};
+
+	functions.initCharacter = function(callback){
+		// Player character, placed at 5, 5 on our grid
+    	Crafty.e('PlayerCharacter').at(5, 5);
 	};
 
 
@@ -57,7 +66,12 @@ Game = (function(){
 		functions.initContext(function(){
 			console.log('context loaded');
 			functions.initTerrain(function(){
-				console.log('game loaded');
+				console.log('terrain loaded');	
+				functions.initCharacter(function(){
+					console.log('character loaded');	
+					console.log('game loaded');	
+				});
+				
 			});	
 		});
 		
