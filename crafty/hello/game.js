@@ -39,6 +39,20 @@ Game = (function(){
 	      }
 	    }
 
+	    // Generate up to five villages on the map in random locations
+		/*var max_villages = 5;
+	    for (var x = 0; x < Game.map_grid.width; x++) {
+	      for (var y = 0; y < Game.map_grid.height; y++) {
+	        if (Math.random() < 0.02) {
+	          Crafty.e('Village').at(x, y);
+	 
+	          if (Crafty('Village').length >= max_villages) {
+	            return;
+	          }
+	        }
+	      }
+	    }*/
+
 	    if(typeof callback != 'undefined'){
 			callback();
 		}
@@ -70,6 +84,7 @@ Game = (function(){
 				functions.initCharacter(function(){
 					console.log('character loaded');	
 					console.log('game loaded');	
+					Crafty.scene('Game');
 				});
 				
 			});	
